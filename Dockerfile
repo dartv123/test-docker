@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1
 
 RUN python3 --version && pip --version
-# Optional safer upgrade:
+# Optional safer upgrade: 
 RUN python3 -m pip install --upgrade pip --break-system-packages
 
 
