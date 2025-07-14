@@ -33,4 +33,4 @@ RUN python install.py --onnxruntime cuda --skip-conda
 EXPOSE 7860
 
 # Default command (adjust to FaceFusion's actual launch script or CLI)
-CMD ["python", "run.py"]
+CMD ["python3", "facefusion.py", "run", "--execution-thread-count", "4", "--execution-providers", "cuda"]
