@@ -20,8 +20,10 @@ RUN apt-get update && apt-get install -y \
 # Set python3.12 as default explicitly (some CUDA containers use python3.8+)
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1
 
-# Install pip if not available
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python
+RUN python3 --version && pip --version
+# Optional safer upgrade:
+RUN python3 -m pip install --upgrade pip --break-system-packages
+
 
 # Clone your modified FaceFusion repo
 RUN git clone https://github.com/dartv123/facefusion.git --branch master --single-branch .
